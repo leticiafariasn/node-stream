@@ -29,3 +29,7 @@ fetch('http://localhost:3334', {
 }).then(data => {
     console.log(data)
 })
+
+//precisa ligar o servidor para poder ativar esse, ou seja:
+//no stream-http-server.js ---> node stream/stream-http-server.js
+// só então, pelo terminal do fake-to-http-stream.js ---> node stream/fake-to-http-stream.js

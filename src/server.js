@@ -11,7 +11,7 @@ const server = http.createServer(async (req, res) => {
         buffers.push(chunk)
     }
 
-    const body = Buffer.concat(buffers).toString()
+    const body = JSON.parse(Buffer.concat(buffers).toString())
     console.log(body)
  
     if (method === "GET" && url ==='/users') {

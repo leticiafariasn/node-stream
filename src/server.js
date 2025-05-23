@@ -4,17 +4,18 @@ const users = []
 
 const server = http.createServer((req, res) => {
     const {method, url} = req
-
-    if (method === "GET" && url === '/users') {
+ 
+    if (method === "GET" && url ==='/users') {
         return res
-        .setHeader('Content-Type', 'application/json')
+        .setHeader('Content-Type', 'Application/json')
+        .end(JSON.stringify(users))
     }
 
-    if(method === "POST" && url === '/users') {
+    if (method === 'POST' && url === '/users') {
         users.push({
             id: 1,
-            name: 'Letícia Farias',
-            email: 'leticiafarias@email.com'
+            nome: 'Letícia Farias',
+            email: 'leticiafarias@hotmail.com',
         })
 
         return res.writeHead(201).end()
@@ -23,4 +24,4 @@ const server = http.createServer((req, res) => {
     return res.writeHead(404).end()
 })
 
-server.listen(3333)
+server.listen(3333);

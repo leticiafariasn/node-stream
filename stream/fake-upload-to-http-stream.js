@@ -1,5 +1,4 @@
-import { Readable } from "node:stream";
-
+import { Readable } from 'node:stream'
 
 class OneToHundredStream extends Readable {
     index = 1
@@ -19,17 +18,12 @@ class OneToHundredStream extends Readable {
     }
 }
 
-fetch('http://localhost:3334', {  
-    // enviando o contador (setTimeout) para a porta
+fetch('http://localhost:3334', {
     method: 'POST',
     body: new OneToHundredStream(),
-    duplex: 'half',
+    duplex: 'half'
 }).then(response => {
     return response.text()
 }).then(data => {
     console.log(data)
 })
-
-//precisa ligar o servidor para poder ativar esse, ou seja:
-//no stream-http-server.js ---> node stream/stream-http-server.js
-// só então, pelo terminal do fake-to-http-stream.js ---> node stream/fake-to-http-stream.js
